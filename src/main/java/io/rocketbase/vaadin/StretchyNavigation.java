@@ -1,14 +1,18 @@
 package io.rocketbase.vaadin;
 
 import com.vaadin.flow.component.AttachEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DetachEvent;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.dependency.JavaScript;
 import com.vaadin.flow.component.dependency.StyleSheet;
 import com.vaadin.flow.component.polymertemplate.EventHandler;
+import com.vaadin.flow.component.polymertemplate.ModelItem;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.shared.Registration;
 import io.rocketbase.vaadin.model.MenuItem;
+import io.rocketbase.vaadin.model.StretchyEvent;
 import io.rocketbase.vaadin.model.Style;
 
 import java.util.ArrayList;
@@ -47,7 +51,6 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
     }
 
     public void addMenuItem(String icon, String title) {
-
         MenuItem mi = MenuItem.builder()
                 .icon(icon)
                 .title(title)
@@ -58,8 +61,18 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
     }
 
     @EventHandler
-    private void iconClicked() {
-        System.out.println("hello .....");
+    private void itemClicked(@ModelItem MenuItem item) {
+        StretchyEvent event = new StretchyEvent(this, false, item);
+        fireEvent(event);
     }
 
+    public Registration addNavigationListener(
+            ComponentEventListener<StretchyEvent> listener) {
+        return addListener(StretchyEvent.class, listener);
+    }
+
+    public void changeStyle(Style style) {
+        this.style = style;
+        getModel().setStyle(this.style.toString());
+    }
 }

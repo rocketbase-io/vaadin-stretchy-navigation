@@ -22,7 +22,7 @@
                 <ul id="navigation-menuitems">
                     <dom-repeat items="[[menuItems]]">
                         <template>
-                            <li><a on-click="iconClicked"><span>{{item.name}}</span></a></li>
+                            <li><a on-click="itemClicked"><span>{{item.name}}</span></a></li>
                         </template>
                     </dom-repeat>
                 </ul>
@@ -63,6 +63,11 @@
                 if (newValue === 'EDIT_CONTENT') {
                     this.stretchNavs.classList.remove('add-content');
                     this.stretchNavs.classList.add('edit-content');
+                }
+
+                if (newValue === 'NAVIGATION') {
+                    this.stretchNavs.classList.remove('add-content');
+                    this.stretchNavs.classList.remove('edit-content');
                 }
             }
 
