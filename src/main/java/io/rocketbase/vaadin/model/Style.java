@@ -1,4 +1,4 @@
-package io.rocketbase.vaadin;
+package io.rocketbase.vaadin.model;
 
 import java.io.Serializable;
 

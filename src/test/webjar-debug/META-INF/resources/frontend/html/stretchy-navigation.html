@@ -22,7 +22,7 @@
                 <ul id="navigation-menuitems">
                     <dom-repeat items="[[menuItems]]">
                         <template>
-                            <li><a href="{{item.path}}"><span>{{item.name}}</span></a></li>
+                            <li><a on-click="iconClicked"><span>{{item.name}}</span></a></li>
                         </template>
                     </dom-repeat>
                 </ul>

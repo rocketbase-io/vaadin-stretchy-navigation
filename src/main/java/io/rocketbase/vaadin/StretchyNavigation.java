@@ -6,7 +6,10 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.dependency.JavaScript;
 import com.vaadin.flow.component.dependency.StyleSheet;
+import com.vaadin.flow.component.polymertemplate.EventHandler;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import io.rocketbase.vaadin.model.MenuItem;
+import io.rocketbase.vaadin.model.Style;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,15 +46,20 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
         getModel().setStyle(this.style.toString());
     }
 
-    public void addMenuItem(String icon, String title, String path) {
+    public void addMenuItem(String icon, String title) {
+
         MenuItem mi = MenuItem.builder()
                 .icon(icon)
                 .title(title)
-                .path(path)
                 .build();
 
         menuItemList.add(mi);
         getModel().setMenuItems(menuItemList);
+    }
+
+    @EventHandler
+    private void iconClicked() {
+        System.out.println("hello .....");
     }
 
 }
