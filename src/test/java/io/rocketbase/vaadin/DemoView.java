@@ -30,7 +30,7 @@ public class DemoView extends Div {
         stretchyNavigation.addMenuItem("User", "User");
         stretchyNavigation.addNavigationListener(stretchyEvent -> {
             MenuItem menuItem = stretchyEvent.getItemClicked();
-            System.out.println("Clicked: " + menuItem.getTitle());
+            Notification.show("Clicked: " + menuItem.getTitle());
         });
         layout.add(stretchyNavigation);
 

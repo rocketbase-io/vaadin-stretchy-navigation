@@ -10,6 +10,6 @@ public interface StretchyNavigationModel extends TemplateModel {
 
     void setStyle(String style);
 
-    @Include({"icon", "title", "path"})
+    @Include({"icon", "title"})
     void setMenuItems(List<MenuItem> menuItems);
 }

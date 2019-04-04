@@ -5,8 +5,6 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DetachEvent;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.HtmlImport;
-import com.vaadin.flow.component.dependency.JavaScript;
-import com.vaadin.flow.component.dependency.StyleSheet;
 import com.vaadin.flow.component.polymertemplate.EventHandler;
 import com.vaadin.flow.component.polymertemplate.ModelItem;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
@@ -20,9 +18,6 @@ import java.util.List;
 
 @Tag("vaadin-stretchy-navigation")
 @HtmlImport("frontend://html/stretchy-navigation.html")
-@StyleSheet("frontend://stretchy-navigation.css")
-@JavaScript("frontend://stretchy-navigation.js")
-@JavaScript("frontend://modernizr.js")
 public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel> {
 
     private Style style;
