@@ -1,34 +1,4 @@
 /* --------------------------------
-
-Primary style
-
--------------------------------- */
-*, *::after, *::before {
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.6rem;
-    font-family: "Source Sans Pro", sans-serif;
-    color: #003c5d;
-    background-color: #ffffff;
-}
-
-a {
-    color: #9acd91;
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-}
-
-/* --------------------------------
-
 Stretchy Nav style - common to:
  - basic navigation
  - add-content navigation
@@ -197,7 +167,6 @@ Stretchy Nav style - common to:
     -o-transform: translateY(-50%) scale(0);
     transform: translateY(-50%) scale(0);
     opacity: .6;
-    background: url(../img/cd-sprite-4.svg) no-repeat 0 0;
 }
 
 .cd-stretchy-nav ul a::before {
@@ -246,6 +215,8 @@ Stretchy Nav style - common to:
     -ms-transform: translateX(-25px);
     -o-transform: translateX(-25px);
     transform: translateX(-25px);
+    font-size: 1rem;
+    font-family: source sans pro, sans-serif;
 }
 
 .cd-stretchy-nav.nav-is-visible ul {
@@ -478,7 +449,7 @@ add-content navigation style
     -ms-transform: translateY(-50%) scale(0);
     -o-transform: translateY(-50%) scale(0);
     transform: translateY(-50%) scale(0);
-    background-image: url(../img/cd-sprite-6.svg);
+    /*background-image: url(../img/cd-sprite-5.svg);*/
 }
 
 .cd-stretchy-nav.add-content ul li:first-of-type a::after {
@@ -670,7 +641,7 @@ edit content
     -ms-transform: translateX(-50%) translateY(-50%);
     -o-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(../img/cd-sprite-5.svg) no-repeat 0 0;
+    /*background: url(../img/cd-sprite-6.svg) no-repeat 0 0;*/
 }
 
 .cd-stretchy-nav.edit-content .cd-nav-trigger span, .cd-stretchy-nav.edit-content .cd-nav-trigger::after {
@@ -722,7 +693,7 @@ edit content
 
 .cd-stretchy-nav.edit-content ul a::after {
     right: 7px;
-    background-image: url(../img/cd-sprite-5.svg);
+    /*background-image: url(../img/cd-sprite-6.svg);*/
 }
 
 .cd-stretchy-nav.edit-content ul li:first-of-type a::after {

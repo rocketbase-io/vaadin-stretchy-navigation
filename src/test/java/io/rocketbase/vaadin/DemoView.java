@@ -3,6 +3,7 @@ package io.rocketbase.vaadin;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -18,10 +19,11 @@ public class DemoView extends Div {
 
     public DemoView() {
 
+        Div styleDiv = new Div();
+        styleDiv.getStyle().set("background-color", "white");
+        styleDiv.getStyle().set("padding", "1% 2%");
         H3 header = new H3("vaadin-stretchy-navigation");
-
-        HorizontalLayout styleChoseLayout = new HorizontalLayout();
-        styleChoseLayout.add(comboBox);
+        styleDiv.add(header, new Hr(), comboBox);
 
         HorizontalLayout layout = new HorizontalLayout();
         StretchyNavigation stretchyNavigation = new StretchyNavigation(Style.NAVIGATION);
@@ -34,8 +36,8 @@ public class DemoView extends Div {
         });
         layout.add(stretchyNavigation);
 
-
         comboBox.setItems(Style.NAVIGATION.toString(), Style.ADD_CONTENT.toString(), Style.EDIT_CONTENT.toString());
+        comboBox.setValue(Style.NAVIGATION.toString());
         comboBox.addValueChangeListener(data -> {
             if (data.getValue() != null && !data.getValue().isEmpty()) {
                 Notification.show("Changed to: " + data.getValue());
@@ -43,8 +45,12 @@ public class DemoView extends Div {
             }
         });
 
-        main.add(header, styleChoseLayout, layout);
+        main.add(styleDiv, layout);
+
+        setSizeFull();
+        getStyle().set("background-color", "#003c5d");
         add(main);
+
     }
 
 }

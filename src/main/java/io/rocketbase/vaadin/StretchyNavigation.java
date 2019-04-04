@@ -22,7 +22,7 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
 
     private Style style;
 
-    List<MenuItem> menuItemList;
+    private List<MenuItem> menuItemList;
 
     public StretchyNavigation(Style style) {
         super();
@@ -47,7 +47,7 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
 
     public void addMenuItem(String icon, String title) {
         MenuItem mi = MenuItem.builder()
-                .icon(icon)
+                .icon("fas fa-igloo")
                 .title(title)
                 .build();
 
