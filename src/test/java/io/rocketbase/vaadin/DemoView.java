@@ -27,9 +27,9 @@ public class DemoView extends Div {
 
         HorizontalLayout layout = new HorizontalLayout();
         StretchyNavigation stretchyNavigation = new StretchyNavigation(Style.NAVIGATION);
-        stretchyNavigation.addMenuItem("Home", "Home");
-        stretchyNavigation.addMenuItem("About", "About");
-        stretchyNavigation.addMenuItem("User", "User");
+        stretchyNavigation.addMenuItem(FontAwesomeIcons.HOME.getIconName(), "Home");
+        stretchyNavigation.addMenuItem(FontAwesomeIcons.ID_CARD.getIconName(), "About");
+        stretchyNavigation.addMenuItem(FontAwesomeIcons.USER.getIconName(), "User");
         stretchyNavigation.addNavigationListener(stretchyEvent -> {
             MenuItem menuItem = stretchyEvent.getItemClicked();
             Notification.show("Clicked: " + menuItem.getTitle());

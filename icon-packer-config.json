@@ -1,0 +1,27 @@
+{
+  "iconsDir": "src/main/icons",
+  "distDir": "target/icons",
+  "setName": "fawe",
+  "iconSize": 26,
+  "padding": 0,
+  "iconsFileName": "fa-icons.html",
+  "enum": {
+    "className": "FontAwesomeIcons",
+    "package": "io.rocketbase.vaadin",
+    "interfaces": [],
+    "collectionNameProperty": {
+      "name": "collectionName",
+      "override": false
+    },
+    "iconNameProperty": {
+      "name": "iconName",
+      "override": false
+    },
+    "createFunction": {
+      "name": "create",
+      "override": false
+    },
+    "language": "java"
+  },
+  "targetProjectRoot": "."
+}
