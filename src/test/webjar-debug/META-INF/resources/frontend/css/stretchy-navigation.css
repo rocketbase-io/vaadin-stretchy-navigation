@@ -166,7 +166,8 @@ Stretchy Nav style - common to:
     -ms-transform: translateY(-50%) scale(0);
     -o-transform: translateY(-50%) scale(0);
     transform: translateY(-50%) scale(0);
-    opacity: .6;
+    opacity: 1;
+    color: white;
 }
 
 .cd-stretchy-nav ul a::before {
@@ -215,7 +216,7 @@ Stretchy Nav style - common to:
     -ms-transform: translateX(-25px);
     -o-transform: translateX(-25px);
     transform: translateX(-25px);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: source sans pro, sans-serif;
 }
 
