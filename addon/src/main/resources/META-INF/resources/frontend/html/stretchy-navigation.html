@@ -1,0 +1,83 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="vaadin-stretchy-navigation">
+
+    <link rel="import" type="css" href="../css/reset.css">
+    <link rel="import" type="css" href="../css/stretchy-navigation.css">
+
+    <template>
+
+        <header>
+            <nav class="cd-stretchy-nav">
+                <a class="cd-nav-trigger" on-click="openNavigation">
+                    Menu
+                    <span aria-hidden="true"></span>
+                </a>
+                <ul>
+                    <template is="dom-repeat" items="[[menuItems]]">
+                        <li><a on-click="itemClicked"><span>{{item.title}}</span>
+                            <iron-icon icon="{{item.icon}}"></iron-icon>
+                        </a></li>
+                    </template>
+                </ul>
+                <span aria-hidden="true" class="stretchy-nav-bg"></span>
+            </nav>
+        </header>
+
+    </template>
+
+    <script>
+
+        class VaadinStretchyNavigation extends Polymer.Element {
+
+            static get properties() {
+                return {
+                    style: {
+                        type: String,
+                        observer: '_styleChanged'
+                    }
+                };
+            }
+
+            static get is() {
+                return 'vaadin-stretchy-navigation';
+            }
+
+            constructor() {
+                super();
+            }
+
+            _styleChanged(newValue) {
+                this.stretchNavs = this.shadowRoot.querySelector('.cd-stretchy-nav');
+                if (newValue === 'ADD_CONTENT') {
+                    this.stretchNavs.classList.remove('edit-content');
+                    this.stretchNavs.classList.add('add-content');
+                }
+
+                if (newValue === 'EDIT_CONTENT') {
+                    this.stretchNavs.classList.remove('add-content');
+                    this.stretchNavs.classList.add('edit-content');
+                }
+
+                if (newValue === 'NAVIGATION') {
+                    this.stretchNavs.classList.remove('add-content');
+                    this.stretchNavs.classList.remove('edit-content');
+                }
+            }
+
+            openNavigation() {
+                this.stretchNavs = this.shadowRoot.querySelector('.cd-stretchy-nav');
+                if (!this.stretchNavs.classList.contains('nav-is-visible')) {
+                    this.stretchNavs.classList.add('nav-is-visible');
+                } else {
+                    this.stretchNavs.classList.remove('nav-is-visible');
+                }
+            }
+
+        }
+
+        window.customElements.define(VaadinStretchyNavigation.is, VaadinStretchyNavigation);
+
+    </script>
+
+</dom-module>
