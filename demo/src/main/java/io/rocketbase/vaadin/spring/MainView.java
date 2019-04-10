@@ -4,6 +4,7 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Hr;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -31,9 +32,10 @@ public class MainView extends VerticalLayout {
 
         HorizontalLayout layout = new HorizontalLayout();
         StretchyNavigation stretchyNavigation = new StretchyNavigation(Style.NAVIGATION);
-        stretchyNavigation.addMenuItem("HOME", "Home");
-        stretchyNavigation.addMenuItem("ABOUT", "About");
-        stretchyNavigation.addMenuItem("USER", "User");
+        stretchyNavigation.addMenuItem(VaadinIcon.HOME.create(), "Home");
+        stretchyNavigation.addMenuItem(VaadinIcon.USER.create(), "User");
+        stretchyNavigation.addMenuItem(VaadinIcon.SERVER.create(), "Server");
+        stretchyNavigation.addMenuItem(VaadinIcon.TWITTER.create(), "Twitter");
         stretchyNavigation.addNavigationListener(stretchyEvent -> {
             MenuItem menuItem = stretchyEvent.getItemClicked();
             Notification.show("Clicked: " + menuItem.getTitle());

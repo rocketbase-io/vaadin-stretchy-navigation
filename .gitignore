@@ -3,4 +3,5 @@
 *.iml
 .idea
 
-target
+demo/target
+addon/target
