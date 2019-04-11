@@ -32,9 +32,9 @@ public class MainView extends VerticalLayout {
 
         HorizontalLayout layout = new HorizontalLayout();
         StretchyNavigation stretchyNavigation = new StretchyNavigation(Style.NAVIGATION);
-        stretchyNavigation.addMenuItem(VaadinIcon.HOME.create(), "Home", true);
+        stretchyNavigation.addMenuItem(VaadinIcon.HOME.create(), "Home", false);
         stretchyNavigation.addMenuItem(VaadinIcon.USER.create(), "User", false);
-        stretchyNavigation.addMenuItem(VaadinIcon.SERVER.create(), "Server", false);
+        stretchyNavigation.addMenuItem(VaadinIcon.SERVER.create(), "Server", true);
         stretchyNavigation.addMenuItem(VaadinIcon.TWITTER.create(), "Twitter", false);
         stretchyNavigation.addNavigationListener(stretchyEvent -> {
             MenuItem menuItem = stretchyEvent.getItemClicked();

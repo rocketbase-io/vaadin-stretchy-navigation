@@ -65,7 +65,6 @@
 
                     this.stretchyNav.classList.remove('edit-content');
                     this.stretchyNav.classList.add('add-content');
-                    this.deactivateAllMenuItems();
                 }
 
                 if (newValue === 'EDIT_CONTENT') {
@@ -74,7 +73,6 @@
 
                     this.stretchyNav.classList.remove('add-content');
                     this.stretchyNav.classList.add('edit-content');
-                    this.deactivateAllMenuItems();
                 }
 
                 if (newValue === 'NAVIGATION') {
@@ -84,9 +82,12 @@
                     this.stretchyNav.classList.remove('edit-content');
                     this.stretchyNav.classList.remove('add-content');
                 }
+
+                this.setActiveElement();
             }
 
             openNavigation() {
+                this.setActiveElement();
                 this.stretchNavs = this.shadowRoot.querySelector('.cd-stretchy-nav');
                 if (!this.stretchNavs.classList.contains('nav-is-visible')) {
                     this.stretchNavs.classList.add('nav-is-visible');
@@ -104,8 +105,23 @@
 
             _activeChanged(newValue) {
                 this.activeElement = newValue;
-                if (this.style === 'NAVIGATION') {
+                this.setActiveElement();
+            }
 
+            deactivateAllMenuItems() {
+                var items = this.shadowRoot.querySelectorAll('.menu-item');
+                for (var i = 0; i < items.length; i++) {
+                    items[i].classList.remove('active');
+                }
+
+                var menuItemIcons = document.querySelectorAll('.menu-item-icon');
+                for (var i = 0; i < menuItemIcons.length; i++) {
+                    menuItemIcons[i].classList.remove('active');
+                }
+            }
+
+            setActiveElement() {
+                if (this.style === 'NAVIGATION') {
                     var items = this.shadowRoot.querySelectorAll('.menu-item');
                     for (var i = 0; i < items.length; i++) {
                         if (items[i].id === this.activeElement.icon) {
@@ -124,18 +140,8 @@
                         }
                     }
 
-                }
-            }
-
-            deactivateAllMenuItems() {
-                var items = this.shadowRoot.querySelectorAll('.menu-item');
-                for (var i = 0; i < items.length; i++) {
-                    items[i].classList.remove('active');
-                }
-
-                var menuItemIcons = document.querySelectorAll('.menu-item-icon');
-                for (var i = 0; i < menuItemIcons.length; i++) {
-                    menuItemIcons[i].classList.remove('active');
+                } else {
+                    this.deactivateAllMenuItems();
                 }
             }
 
