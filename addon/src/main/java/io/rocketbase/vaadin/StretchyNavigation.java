@@ -95,4 +95,9 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
         el.getClassList().add("menu-item-icon");
         getElement().appendChild(el);
     }
+
+    public void deleteAllMenuItems() {
+        getElement().removeAllChildren();
+        this.menuItemList.clear();
+    }
 }
