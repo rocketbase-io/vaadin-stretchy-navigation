@@ -5,22 +5,21 @@
     <link rel="import" type="css" href="../css/nav-menu.css">
 
     <template>
-        <header>
-            <nav class="cd-stretchy-nav">
-                <a class="cd-nav-trigger" on-click="openNavigation">
-                    Menu
-                    <span aria-hidden="true"></span>
-                </a>
-                <ul>
-                    <template is="dom-repeat" items="[[menuItems]]">
-                        <li><a class="menuItem" on-click="itemClicked"><span>{{item.title}}</span>
-                            <slot name="{{item.icon}}"></slot>
-                        </a></li>
-                    </template>
-                </ul>
-                <span aria-hidden="true" class="stretchy-nav-bg"></span>
-            </nav>
-        </header>
+
+        <nav class="cd-stretchy-nav">
+            <a class="cd-nav-trigger" on-click="openNavigation">
+                Menu
+                <span aria-hidden="true"></span>
+            </a>
+            <ul>
+                <template is="dom-repeat" items="[[menuItems]]">
+                    <li><a class="menu-item" id="{{item.icon}}" on-click="itemClicked"><span>{{item.title}}</span>
+                        <slot name="{{item.icon}}"></slot>
+                    </a></li>
+                </template>
+            </ul>
+            <span aria-hidden="true" class="stretchy-nav-bg"></span>
+        </nav>
 
     </template>
 
@@ -30,6 +29,10 @@
 
             static get properties() {
                 return {
+                    active: {
+                        type: String,
+                        observer: '_activeChanged'
+                    },
                     style: {
                         type: String,
                         reflectToAttribute: true,
@@ -52,6 +55,7 @@
             }
 
             _styleChanged(newValue) {
+                this.style = newValue;
                 this.stretchNavs = this.shadowRoot.querySelector('.cd-stretchy-nav');
                 this.stretchyNav = document.querySelector('.stretchy-navigation');
 
@@ -61,6 +65,7 @@
 
                     this.stretchyNav.classList.remove('edit-content');
                     this.stretchyNav.classList.add('add-content');
+                    this.deactivateAllMenuItems();
                 }
 
                 if (newValue === 'EDIT_CONTENT') {
@@ -69,6 +74,7 @@
 
                     this.stretchyNav.classList.remove('add-content');
                     this.stretchyNav.classList.add('edit-content');
+                    this.deactivateAllMenuItems();
                 }
 
                 if (newValue === 'NAVIGATION') {
@@ -93,6 +99,43 @@
                     stretchyNav.classList.add('nav-is-visible');
                 } else {
                     stretchyNav.classList.remove('nav-is-visible');
+                }
+            }
+
+            _activeChanged(newValue) {
+                this.activeElement = newValue;
+                if (this.style === 'NAVIGATION') {
+
+                    var items = this.shadowRoot.querySelectorAll('.menu-item');
+                    for (var i = 0; i < items.length; i++) {
+                        if (items[i].id === this.activeElement.icon) {
+                            items[i].classList.add('active');
+                        } else {
+                            items[i].classList.remove('active');
+                        }
+                    }
+
+                    var menuItemIcons = document.querySelectorAll('.menu-item-icon');
+                    for (var i = 0; i < menuItemIcons.length; i++) {
+                        if (menuItemIcons[i].slot === this.activeElement.icon) {
+                            menuItemIcons[i].classList.add('active');
+                        } else {
+                            menuItemIcons[i].classList.remove('active');
+                        }
+                    }
+
+                }
+            }
+
+            deactivateAllMenuItems() {
+                var items = this.shadowRoot.querySelectorAll('.menu-item');
+                for (var i = 0; i < items.length; i++) {
+                    items[i].classList.remove('active');
+                }
+
+                var menuItemIcons = document.querySelectorAll('.menu-item-icon');
+                for (var i = 0; i < menuItemIcons.length; i++) {
+                    menuItemIcons[i].classList.remove('active');
                 }
             }
 

@@ -421,17 +421,6 @@ add-content navigation style
     animation-delay: 0.1s;
 }
 
-.cd-stretchy-nav.add-content.nav-is-visible ul a iron-icon {
-    -webkit-animation-name: scaleIn;
-    -moz-animation-name: scaleIn;
-    animation-name: scaleIn;
-    -webkit-transform: translateY(-50%) scale(1);
-    -moz-transform: translateY(-50%) scale(1);
-    -ms-transform: translateY(-50%) scale(1);
-    -o-transform: translateY(-50%) scale(1);
-    transform: translateY(-50%) scale(1);
-}
-
 .cd-stretchy-nav.add-content ul span {
     position: absolute;
     left: 0;

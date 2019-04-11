@@ -51,15 +51,12 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
         getModel().setStyle(this.style.toString());
     }
 
-    public void addMenuItem(Icon icon, String title) {
-        addElement(icon.getElement(), title);
+    public void addMenuItem(Icon icon, String title, boolean active) {
+        addElement(icon.getElement(), title, active);
     }
 
-    public void addMenuItem(Element icon, String title) {
-        addElement(icon, title);
-    }
+    private void addElement(Element el, String title, boolean active) {
 
-    private void addElement(Element el, String title) {
         MenuItem mi = MenuItem.builder()
                 .icon(el.toString())
                 .title(title)
@@ -67,17 +64,18 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
 
         el.setAttribute("slot", mi.getIcon());
         el.getClassList().add("menu-item-icon");
-
-
-        getElement().insertChild(0, el);
-//        getElement().appendChild(el);
+        getElement().appendChild(el);
 
         menuItemList.add(mi);
         getModel().setMenuItems(menuItemList);
+
+        if (active)
+            this.updateActiveElement(mi);
     }
 
     @EventHandler
     private void itemClicked(@ModelItem MenuItem item) {
+        updateActiveElement(item);
         StretchyEvent event = new StretchyEvent(this, false, item);
         fireEvent(event);
     }
@@ -90,5 +88,9 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
     public void changeStyle(Style style) {
         this.style = style;
         getModel().setStyle(this.style.toString());
+    }
+
+    private void updateActiveElement(MenuItem item) {
+        getModel().setActive(item);
     }
 }
