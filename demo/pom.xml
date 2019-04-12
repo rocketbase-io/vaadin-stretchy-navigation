@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.rocketbase.vaadin</groupId>
     <artifactId>vaadin-stretchy-navigation-demo</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -60,7 +60,7 @@
         <dependency>
             <groupId>io.rocketbase.vaadin</groupId>
             <artifactId>vaadin-stretchy-navigation</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -142,8 +142,4 @@
             </build>
         </profile>
     </profiles>
-
-  <scm>
-    <tag>vaadin-stretchy-navigation-root-1.0.0</tag>
-  </scm>
 </project>
