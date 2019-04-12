@@ -6,7 +6,8 @@
     <groupId>io.rocketbase.vaadin</groupId>
     <artifactId>vaadin-stretchy-navigation</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>vaadin-stretchy-navigation</name>
+
+    <name>stretchy-navigation</name>
     <description>Integration of Stretchy Navigation for Vaadin platform</description>
 
     <properties>
