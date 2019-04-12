@@ -51,6 +51,7 @@ Stretchy Nav style - common to:
     white-space: nowrap;
     color: transparent;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 .cd-nav-trigger span, .cd-nav-trigger span::after, .cd-nav-trigger span::before {
@@ -227,6 +228,10 @@ Stretchy Nav style - common to:
     -ms-transform: translateX(-5px);
     -o-transform: translateX(-5px);
     transform: translateX(-5px);
+}
+
+.cd-stretchy-nav.nav-is-visible ul li .menu-item {
+    cursor: pointer;
 }
 
 .cd-stretchy-nav.nav-is-visible ul li:first-of-type span {

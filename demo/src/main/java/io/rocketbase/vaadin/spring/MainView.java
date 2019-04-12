@@ -9,7 +9,6 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
 import io.rocketbase.vaadin.StretchyNavigation;
 import io.rocketbase.vaadin.model.MenuItem;
 import io.rocketbase.vaadin.model.Style;
@@ -17,7 +16,6 @@ import io.rocketbase.vaadin.model.Style;
 import java.io.IOException;
 
 @Route
-@PWA(name = "Project Base for Vaadin Flow with Spring", shortName = "Project Base")
 public class MainView extends VerticalLayout {
 
     VerticalLayout main = new VerticalLayout();

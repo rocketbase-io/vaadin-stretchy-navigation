@@ -15,12 +15,10 @@ import com.vaadin.flow.shared.Registration;
 import io.rocketbase.vaadin.model.MenuItem;
 import io.rocketbase.vaadin.model.StretchyEvent;
 import io.rocketbase.vaadin.model.Style;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
 @Tag("vaadin-stretchy-navigation")
 @HtmlImport("frontend://html/stretchy-navigation.html")
 @StyleSheet("frontend://css/icons-menu.css")
@@ -52,9 +50,8 @@ public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel>
     }
 
     public void addMenuItem(Icon icon, String title, boolean active) {
-
         MenuItem mi = MenuItem.builder()
-                .icon(icon.getElement().toString())
+                .icon(icon.getElement().getOuterHTML())
                 .title(title)
                 .build();
         menuItemList.add(mi);
