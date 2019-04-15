@@ -21,7 +21,7 @@ import java.util.List;
 
 @Tag("vaadin-stretchy-navigation")
 @HtmlImport("frontend://html/stretchy-navigation.html")
-@StyleSheet("frontend://css/icons-menu.css")
+@StyleSheet("frontend://css/local-styles.css")
 public class StretchyNavigation extends PolymerTemplate<StretchyNavigationModel> {
 
     private Style style;
