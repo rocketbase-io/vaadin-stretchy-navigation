@@ -158,18 +158,3 @@ keyframes
         transform: translateX(0);
     }
 }
-
-
-/* --------------------------------
-
-Editable Content Wrapper Div
-
--------------------------------- */
-.cd-editable-content {
-    position: relative;
-}
-
-.cd-editable-content img {
-    display: block;
-    border-radius: .25em;
-}

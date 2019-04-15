@@ -63,9 +63,9 @@ public class MainView extends VerticalLayout {
 
     }
 
-    private Div createNavigationView() {
+    private VerticalLayout createNavigationView() {
 
-        Div contentDiv = new Div();
+        VerticalLayout layer = new VerticalLayout();
 
         if (this.stretchyNavigation != null) {
             stretchyNavigation.changeStyle(Style.NAVIGATION);
@@ -80,17 +80,19 @@ public class MainView extends VerticalLayout {
         stretchyNavigation.addMenuItem(VaadinIcon.STOCK.create(), "Stock", false);
         stretchyNavigation.addMenuItem(VaadinIcon.STORAGE.create(), "Store", false);
 
-        contentDiv.add(stretchyNavigation);
+        layer.add(stretchyNavigation);
 
-        return contentDiv;
+        return layer;
     }
 
-    private Div createEditContentView() {
+    private VerticalLayout createEditContentView() {
 
-        Div contentDiv = new Div();
-        contentDiv.addClassName("cd-editable-content");
-
-        contentDiv.getStyle().set("margin", "4% auto auto");
+        VerticalLayout layer = new VerticalLayout();
+        layer.setWidth("fit-content");
+        layer.setPadding(false);
+        layer.setSpacing(false);
+        layer.getStyle().set("position", "relative");
+        layer.getStyle().set("margin", "auto");
 
         if (this.stretchyNavigation != null) {
             stretchyNavigation.changeStyle(Style.EDIT_CONTENT);
@@ -107,16 +109,15 @@ public class MainView extends VerticalLayout {
 
         Image image = new Image("frontend/img/img.png", "Text");
         image.getStyle().set("max-width", "430px");
-        contentDiv.add(image);
-        contentDiv.add(stretchyNavigation);
+        layer.add(stretchyNavigation);
+        layer.add(image);
 
-        return contentDiv;
+        return layer;
     }
 
-    private Div createAddContentView() {
+    private VerticalLayout createAddContentView() {
 
-        Div contentDiv = new Div();
-
+        VerticalLayout layer = new VerticalLayout();
         if (this.stretchyNavigation != null) {
             stretchyNavigation.changeStyle(Style.ADD_CONTENT);
         } else {
@@ -129,9 +130,9 @@ public class MainView extends VerticalLayout {
         stretchyNavigation.addMenuItem(VaadinIcon.LINK.create(), "Link", false);
         stretchyNavigation.addMenuItem(VaadinIcon.MOVIE.create(), "Video", false);
 
-        contentDiv.add(stretchyNavigation);
+        layer.add(stretchyNavigation);
 
-        return contentDiv;
+        return layer;
     }
 
     private void addNavigationListener() {
