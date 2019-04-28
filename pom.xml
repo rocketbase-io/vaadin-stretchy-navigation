@@ -29,9 +29,9 @@
     </modules>
 
     <scm>
-        <connection>scm:git:git@github.com:rocketbase-io/vaadin-croppie.git</connection>
-        <developerConnection>scm:git:git@github.com:rocketbase-io/vaadin-croppie.git</developerConnection>
-        <url>https://github.com/rocketbase-io/vaadin-croppie.git</url>
+        <connection>scm:git:git@github.com:rocketbase-io/vaadin-stretchy-navigation.git</connection>
+        <developerConnection>scm:git:git@github.com:rocketbase-io/vaadin-stretchy-navigation.git</developerConnection>
+        <url>https://github.com/rocketbase-io/vaadin-stretchy-navigation.git</url>
         <tag>HEAD</tag>
     </scm>
 
